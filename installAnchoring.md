@@ -37,19 +37,18 @@ sudo rosdep init
 rosdep update
 ```
 
-## install libfreenect2
+## Install libfreenect2
 
-Download CUDA samples:
+Download CUDA samples under the same directory as libfreenect2:
 ``` sh
 git clone https://github.com/NVIDIA/cuda-samples.git
 ```
-export PATH=/home/changjie/Documents/tmp/cuda-samples/Common:$PATH
 
 ``` sh
 sudo apt-get update && sudo apt-get install -y libusb-1.0-0-dev libglfw3-dev libturbojpeg0-dev
-git clone --recursive https://github.com/OpenKinect/libfreenect2.git && \
+git clone --recursive https://github.com/gcjyzdd/libfreenect2.git && \
   cd libfreenect2 && mkdir build && cd build && \
-  cmake .. -DENABLE_CXX11=ON -DENABLE_CUDA=ON && make -j4 && sudo make install && \
+  cmake .. -DENABLE_CXX11=ON -DENABLE_CUDA=ON -DNVCUDASAMPLES_ROOT=`pwd`/../../cuda-samples && make -j4 && sudo make install && \
   cd ../.. && rm -rf libfreenect2
 ```
 
@@ -119,9 +118,22 @@ catkin_make -DCMAKE_BUILD_TYPE="Release"
 
 ## Run
 
+Setup shell environment:
+
 ``` sh
 # for bash
 source ~/catkin_ws/devel/setup.bash
 # for zsh
 source ~/catkin_ws/devel/setup.zsh
+```
+
+Start `kinect2_bridge`:
+``` sh
+cd /home/changjie/catkin_ws/src/iai_kinect2/kinect2_bridge/launch
+roslaunch kinect2_bridge kinect2_bridge.launch
+```
+
+Run `kinect2_viewer` in another terminal:
+``` sh
+rosrun kinect2_viewer kinect2_viewer kinect2 sd cloud
 ```
