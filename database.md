@@ -21,15 +21,42 @@ cd ~/catkin_ws
 ## Install MongoDB C++ drivers
 ``` sh
 cd /tmp
-git clone https://github.com/mongodb/mongo-cxx-driver.git --branch releases/stable --depth 1 && cd mongo-cxx-driver/build && \
+git clone https://github.com/mongodb/mongo-cxx-driver.git --branch r3.3.0 --depth 1 && cd mongo-cxx-driver/build && \
   cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local .. && sudo make EP_mnmlstc_core -j4 && make -j4 && sudo make install
 cd ~/catkin_ws
 ```
 
-## Check build
+### Check build
 
 ``` sh
 catkin_make anchor_msgs -DCMAKE_BUILD_TYPE="Release"
 ```
 
 It should pass `database`.
+
+## Install AR-based tracking
+
+``` sh
+sudo apt-get install ros-melodic-ar-track-alvar
+```
+
+```
+traversing 14 packages in topological order:
+- console
+- anchor_msgs
+- database
+- hand_tracking
+- ml
+- features
+- object_classification
+- reasoning
+- feature_extraction
+- anchoring
+- ar_transform
+- object_tracking
+- display
+- object_segmentation
+```
+
+catkin_make --only-pkg-with-deps anchor_msgs
+catkin_make --only-pkg-with-deps database
