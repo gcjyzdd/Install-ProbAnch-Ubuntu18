@@ -11,6 +11,24 @@ sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
 ``` sh
 sudo apt-get install libopenblas-base libopenblas-dev
 ```
+
+## Install cuDNN
+
+``` sh
+sudo dpkg -i cudnn-local-repo-ubuntu1804-8.5.0.96_1.0-1_amd64.deb
+# if the above command gets you an error, try below and rerun the command above
+sudo cp /var/cudnn-local-repo-ubuntu1804-8.5.0.96/cudnn-local-7B49EDBC-keyring.gpg /usr/share/keyrings/cuda-archive-keyring.gpg
+```
+
+## Update CMake to support CUDA
+
+``` sh
+wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
+sudo apt update
+sudo apt install -y cmake
+```
+
 ``` sh
 cd ~/Documents
 git clone https://github.com/BVLC/caffe.git --branch 1.0 --depth 1
