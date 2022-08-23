@@ -58,5 +58,11 @@ traversing 14 packages in topological order:
 - object_segmentation
 ```
 
+``` sh
+catkin_make --only-pkg-with-deps console
 catkin_make --only-pkg-with-deps anchor_msgs
 catkin_make --only-pkg-with-deps database
+catkin_make --only-pkg-with-deps hand_tracking
+catkin_make --only-pkg-with-deps ml
+catkin_make --only-pkg-with-deps features
+```
