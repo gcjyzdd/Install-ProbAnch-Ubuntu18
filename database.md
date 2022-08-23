@@ -9,6 +9,27 @@ echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3
 sudo apt-get update && sudo apt-get install -y mongodb-org
 ```
 
+## install mongoDB C drivers
+``` sh
+sudo apt-get install -y pkg-config libssl-dev libsasl2-dev git gcc automake autoconf libtool cmake build-essential python3
+cd /tmp
+git clone --branch 1.21.1 https://github.com/mongodb/mongo-c-driver.git && cd mongo-c-driver && mkdir cmake-build && cd cmake-build && \
+  cmake -DENABLE_AUTOMATIC_INIT_AND_CLEANUP=OFF .. &&  make -j4 && sudo make install
+cd ~/catkin_ws
+```
+
+## Install MongoDB C++ drivers
+``` sh
+cd /tmp
+git clone https://github.com/mongodb/mongo-cxx-driver.git --branch releases/stable --depth 1 && cd mongo-cxx-driver/build && \
+  cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local .. && sudo make EP_mnmlstc_core -j4 && make -j4 && sudo make install
+cd ~/catkin_ws
+```
+
+## Check build
+
 ``` sh
 catkin_make anchor_msgs -DCMAKE_BUILD_TYPE="Release"
 ```
+
+It should pass `database`.
