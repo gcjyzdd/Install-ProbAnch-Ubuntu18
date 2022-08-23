@@ -29,6 +29,8 @@ sudo apt update
 sudo apt install -y cmake
 ```
 
+## Build caffe
+
 ``` sh
 cd ~/Documents
 git clone https://github.com/BVLC/caffe.git --branch 1.0 --depth 1
@@ -54,4 +56,32 @@ traversing 14 packages in topological order:
 - object_segmentation
 ```
 
+## Build object_classification
+
+Set environment variable `CAFFE_ROOT` to build `caffe`:
+
+``` sh
+export CAFFE_ROOT=/home/changjie/Documents/caffe
+```
+
+``` sh
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/changjie/Documents/caffe/build/install/lib:/usr/lib/x86_64-linux-gnu/hdf5/serial
+```
+
+### Fix CMakeLists.txt
+
+Change 
+``` cmake
+set(Caffe_LINK_LIBRARAY ${Caffe_DIR}/build/lib)
+``` 
+to
+``` cmake
+set(Caffe_LINK_LIBRARAY ${Caffe_DIR}/lib)
+````
+
+### Build
+
+Build `object_classification`:
+``` sh
 catkin_make --only-pkg-with-deps object_classification
+```
