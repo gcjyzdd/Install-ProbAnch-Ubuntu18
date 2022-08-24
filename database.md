@@ -59,6 +59,7 @@ traversing 14 packages in topological order:
 ```
 
 ``` sh
+cd ~/catkin_ws
 catkin_make --only-pkg-with-deps console
 catkin_make --only-pkg-with-deps anchor_msgs
 catkin_make --only-pkg-with-deps database

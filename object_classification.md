@@ -83,5 +83,6 @@ set(Caffe_LINK_LIBRARAY ${Caffe_DIR}/lib)
 
 Build `object_classification`:
 ``` sh
+cd ~/catkin_ws
 catkin_make --only-pkg-with-deps object_classification
 ```

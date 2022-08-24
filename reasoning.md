@@ -45,3 +45,50 @@ Change back `gcc`:
 sudo update-alternatives --set gcc "/usr/bin/gcc-7"
 gcc --version
 ```
+
+## Prerequisites to compile Distributional Clauses
+
+``` sh
+sudo apt-get install -y libgsl-dev libboost-all-dev
+```
+
+## Install Distributional Clauses
+
+``` sh
+mkdir ~/Documents/packages
+cd ~/Documents/packages
+git clone https://bitbucket.org/problog/dc_problog.git
+cd dc_problog && sh make.sh
+echo "export YAPSHAREDIR=`pwd`/dc_problog" >> ~/.bashrc
+# if you use zsh
+echo "export YAPSHAREDIR=`pwd`/dc_problog" >> ~/.zshrc
+```
+
+### Test dc
+Execute
+``` sh
+sh test.sh
+```
+
+## Install PyDC
+
+``` sh
+cd ~/Documents/packages
+git clone https://github.com/ML-KULeuven/PyDC.git pydc
+cd pydc
+sudo python setup.py install --force
+```
+
+### Test
+To make sure that everything is in order try running one of the examples, e.g.:
+
+``` sh
+python examples/example_dc/example_dc.py
+```
+
+## Build reasoning
+
+``` sh
+cd ~/catkin_ws
+catkin_make --only-pkg-with-deps reasoning
+```
