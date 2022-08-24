@@ -86,3 +86,17 @@ Build `object_classification`:
 cd ~/catkin_ws
 catkin_make --only-pkg-with-deps object_classification
 ```
+
+### Download model
+
+``` sh
+# install pip
+sudo apt install python-pip
+sudo pip install requests
+cd ~/catkin_ws/src/anchoring/grounding/object_classification/model
+./download_model.py
+```
+
+``` sh
+#export PYTHONPATH=$PYTHONPATH:/usr/lib/python2.7/dist-packages:/usr/lib/python3/dist-packages
+```

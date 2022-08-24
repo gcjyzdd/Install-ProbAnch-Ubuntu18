@@ -29,6 +29,8 @@ traversing 19 packages in topological order:
 
 Follow the below instructions to install dependencies one-by-one.
 
+To develop/debug the project, it's recommended to use Visual Studio Code and install the ROS extension.
+
 ## Install ros and libfreenect2
 
 Follow [installAnchoring.md](./installAnchoring.md).
