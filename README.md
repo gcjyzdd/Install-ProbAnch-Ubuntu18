@@ -58,8 +58,9 @@ Follow [object_classification.md](./object_classification.md)
 
 Follow [reasoning.md](./reasoning.md)
 
-## Build
+## Final Build
 
 ```
-mkdir -P ~/catkin_ws
+cd ~/catkin_ws
+catkin_make
 ```
