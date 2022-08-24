@@ -92,3 +92,18 @@ python examples/example_dc/example_dc.py
 cd ~/catkin_ws
 catkin_make --only-pkg-with-deps reasoning
 ```
+
+## Install feature_extraction
+
+``` sh
+sudo apt-get install -y ros-melodic-tf2-msgs ros-melodic-tf2-sensor-msgs
+catkin_make --only-pkg-with-deps feature_extraction
+```
+
+``` sh
+catkin_make --only-pkg-with-deps anchoring
+catkin_make --only-pkg-with-deps ar_transform
+catkin_make --only-pkg-with-deps object_tracking
+catkin_make --only-pkg-with-deps display
+catkin_make --only-pkg-with-deps object_segmentation
+```

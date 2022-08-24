@@ -41,16 +41,21 @@ sudo apt-get install ros-melodic-ar-track-alvar
 ```
 
 ```
-traversing 14 packages in topological order:
+traversing 19 packages in topological order:
+- iai_kinect2 (metapackage)
 - console
 - anchor_msgs
 - database
 - hand_tracking
+- kinect2_registration
 - ml
 - features
 - object_classification
 - reasoning
 - feature_extraction
+- kinect2_bridge
+- kinect2_calibration
+- kinect2_viewer
 - anchoring
 - ar_transform
 - object_tracking
