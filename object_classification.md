@@ -100,3 +100,5 @@ cd ~/catkin_ws/src/anchoring/grounding/object_classification/model
 ``` sh
 #export PYTHONPATH=$PYTHONPATH:/usr/lib/python2.7/dist-packages:/usr/lib/python3/dist-packages
 ```
+
+`apt get install python-rospkg` VS `pip install rospkg`?
