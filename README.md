@@ -62,7 +62,18 @@ Follow [reasoning.md](./reasoning.md)
 
 ## Final Build
 
-```
+``` sh
 cd ~/catkin_ws
 catkin_make
+```
+
+## Tests
+
+The following command should work:
+
+``` sh
+cd src/anchoring/perception/object_segmentation/launch
+roslaunch object_segmentation object_segmentation_tf_static.launch
+# or try this
+roslaunch object_segmentation object_calibration.launch
 ```
